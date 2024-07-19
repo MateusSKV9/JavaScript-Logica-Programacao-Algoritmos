@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 3.1</title>
+</head>
+<body>
+    <h1>Programa Situação do Aluno</h1>
+    <p>
+        <label for="inNome">Nome do aluno: </label>
+        <input type="text" name="inNome" id="inNome">
+    </p>
+    <p>
+        <label for="inNota1">Nota 1: </label>
+        <input type="number" name="inNota1" id="inNota1" min="0" max="10">
+    </p>
+    <p>
+        <label for="inNota2">Nota 2: </label>
+        <input type="number" name="inNota2" id="inNota2" min="0" max="10">
+    </p>
+    <input id="btnCalcularMedia" type="button" value="Exibir média e situação">
+
+    <h3 id="outMedia"></h3>
+    <h3 id="outSituacao"></h3>
+
+    <script src="js/ex3_1.js"></script>
+</body>
+</html>
