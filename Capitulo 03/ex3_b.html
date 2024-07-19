@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Prohrama Cálculo do Peso Ideal</h1>
+    <hr>
+    <p>
+        <label for="inNome">Nome: </label>
+        <input type="text" name="inNome" id="inNome">
+    </p>
+    <p>
+        <label for="inSexo">Sexo: </label>
+        <input type="radio" name="inSexo" id="inMasculino"> <label for="inMasculino">Masculino</label>
+        <input type="radio" name="inSexo" id="inFeminino"><label for="inFeminino">Feminino</label>
+    </p>
+    <p>
+        <label for="inAltura">Altura: </label>
+        <input type="number" name="inAltura" id="inAltura">
+    </p>
+    <input id="btnCalcularPeso" type="button" value="Calcular Peso Ideal">
+    <input id="btnLimparCampos" type="reset" value="Limpar Campos">
+
+    <h3 id="outPeso"></h3>
+
+    <script src="js/ex3_2.js"></script>
+</body>
+</html>
