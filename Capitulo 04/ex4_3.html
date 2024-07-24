@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 4.3</title>
+</head>
+<body>
+    <script>
+        do {
+            var num = Number(prompt('Número: '));
+            if(num == 0 || isNaN(num)) {
+                alert('Digite um número válido...');
+            }
+        } while(num == 0 || isNaN(num));
+
+        var pares = 'Pares entre 1 '+num+"(inclusive): ";
+        if(num>1) {
+            pares = pares + '2';
+        }
+
+        for(var i = 4; i<=num; i+=2) {
+            pares = pares+', '+i;
+        }
+        alert(pares);
+    </script>
+</body>
+</html>
