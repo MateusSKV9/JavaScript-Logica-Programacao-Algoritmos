@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exemplo 5.2</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>Jogo Descubra o Número</h1>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .oculta {
+        display: none;
+      }
+      .exibe {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Descubra o Número</h1>
     <p>
-        <label for="inNumero">Número: </label>
-        <input type="number" name="inNumero" id="inNumero">
-        <input type="button" value="Apostar" id="btnApostar">
+      Número:
+      <input type="text" id="inNumero" autofocus />
+      <input type="button" value="Apostar" id="btApostar" />
+      <input
+        type="button"
+        value="Jogar Novamente"
+        id="btJogar"
+        class="oculta"
+      />
     </p>
-    <h3>Erros: <span id="outErros"></span></h3>
-    <h3>Chances: <span id="outChances"></span></h3>
-    <h3 id="outDica">Dica: É um número entre 1 e 100</h3>
-
+    <h3>
+      Erros:
+      <span id="outErros">0</span>
+    </h3>
+    <h3>
+      Chances:
+      <span id="outChances">6</span>
+    </h3>
+    <h3 id="outDica" class="italico">Dica: É um número entre 1 e 100</h3>
     <script src="js/ex5_2.js"></script>
-</body>
+  </body>
 </html>
