@@ -50,7 +50,7 @@ function apostarNumero() {
       }
     }
   }
-  // Limpa campo de entrada e posiciona cursor neste campo
+ 
   inNumero.value = "";
   inNumero.focus();
 }
