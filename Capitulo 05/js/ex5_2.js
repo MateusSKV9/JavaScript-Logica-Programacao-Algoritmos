@@ -1,5 +1,4 @@
 // declara vetor de escopo global que irá conter os números já
-apostados;
 var erros = [];
 // gera um número aleatório entre 1 e 100
 var sorteado = Math.floor(Math.random() * 100) + 1;
@@ -56,4 +55,10 @@ function apostarNumero() {
 }
 var btApostar = document.getElementById("btApostar");
 btApostar.addEventListener("click", apostarNumero);
+
+function jogarNovamente() {
+  location.reload();
+}
+var btJogar = document.getElementById('btJogar');
+btJogar.addEventListener('click', jogarNovamente)
 
