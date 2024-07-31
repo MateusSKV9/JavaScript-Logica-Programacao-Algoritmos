@@ -1,7 +1,7 @@
 function montarDica() {
     var inFruta = document.getElementById('inFruta');
     var outDica = document.getElementById('outDica');
-    var fruta = inFruta.value;
+    var fruta = inFruta.value.toUpperCase();
 
     if(fruta=='' || !isNaN(fruta)) {
         alert('Insira um nome válido.');
