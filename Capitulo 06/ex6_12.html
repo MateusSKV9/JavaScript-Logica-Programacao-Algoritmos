@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 6.12</title>
+</head>
+<body>
+    <script>
+        var parcelas = Number(prompt('Quantas parcelas? '));
+
+        var lista = '';
+        var dia, mes, ano, diaZero, mesZero;
+
+        var data = new Date();
+
+        for(var i = 1; i<=parcelas; i++) {
+            data.setMonth(data.getMonth()+1);
+            dia = data.getDate();            
+            mes = data.getMonth()+1;
+            ano = data.getFullYear();
+
+            diaZero = dia < 10 ? '0' + dia : dia;
+            mesZero = mes < 10 ? '0' + mes : mes;
+            
+            lista += i+'ª Parcela: '+diaZero+'/'+mesZero+'/'+ano+'\n';
+        }
+        alert(lista+' \n'+mes);
+    </script>
+</body>
+</html>
