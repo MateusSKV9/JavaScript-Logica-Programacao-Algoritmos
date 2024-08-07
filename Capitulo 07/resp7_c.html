@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7.c</title>
+    <link rel="stylesheet" href="styles/css/style.css">
+</head>
+<body>
+    <h1>Veterinária Avenida</h1>
+    <p>
+        <label for="inValor">Valor da vacina: </label>
+        <input type="number" name="inValor" id="inValor">
+    </p>
+    <p>
+        <label for="inConvenio">Possui convênio: </label>
+        <input type="radio" name="rdConvenio" id="rdSim"><label for="rdSim">Sim</label>
+        <input type="radio" name="rdConvenio" id="rdNao" checked><label for="rdNao">Não</label>
+    </p>
+    <p id="pSelect" class="oculta">
+        <label for="inTipoConvenio">convênio: </label>
+        <select name="inTipoConvenio" id="select">
+            <option value="">Escolha</option>
+            <option value="amigoAnimal">Amigo dos Animais</option>
+            <option value="saudeAnimal">Saúde Animal</option>
+        </select>
+    </p>
+    <p>
+        <input type="button" value="Calcular desconto" id="btnInformarDesconto">
+    </p>
+    <h3 id="outDesconto"></h3>
+    <h3 id="outValor"></h3>
+
+    <script src="js/resp7_c.js"></script>
+</body>
+</html>
