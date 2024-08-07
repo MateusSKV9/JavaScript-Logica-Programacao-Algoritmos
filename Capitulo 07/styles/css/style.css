@@ -40,3 +40,14 @@ input[type='button']:hover {
 #outDica {
     letter-spacing: 0.5em;
 }
+
+div#display {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    flex-wrap: wrap;
+}
+
+.oculta {
+    display: none;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 7.6</title>
+    <link rel="stylesheet" href="styles/css/style.css">
+</head>
+<body>
+    <h1>Pizzaria Avenida - Controle de Pedidos</h1>
+    <div id="display">
+        <p>
+            <label for="inPedido">Item do pedido: </label>
+            <input type="radio" name="inPedido" id="pizza" checked><label for="pizza">Pizza</label>
+            <input type="radio" name="inPedido" id="bebida"><label for="bebida">Bebida</label>
+        </p>
+
+        <p>
+            <label for="inItem">Item: </label>
+            <select name="inPizza" id="inPizza">
+                <option value="media">Pizza Média</option>
+                <option value="grande">Pizza Grande</option>
+                <option value="familia">Pizza Família</option>
+            </select>
+            <select name="inBebida" id="inBebida" class="oculta">
+                <option value="refri">Refrigerante</option>
+                <option value="suco">Jarra de Suco</option>
+                <option value="agua">Água Mineral</option>
+            </select>
+        </p>
+    </div>
+    <p>
+        <label for="inDetalhes">Detalhe do item: </label>
+        <input type="text" name="inDetalhes" id="inDetalhes" autofocus>
+        <input type="button" value="Adicionar" id="btnAdicionar">
+    </p>
+    <pre id="outPedidos"></pre>
+
+    <script src="js/ex7_6.js"></script>
+</body>
+</html>
