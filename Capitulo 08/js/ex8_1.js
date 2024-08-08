@@ -2,55 +2,46 @@ function trocarClube() {
     var imgClube = document.getElementById('imgClube');
     var divTitulo = document.getElementById('divTitulo');
 
-    var clube;
+    var clubes = ['Brasil', 'Pelotas', 'Farroupilha'];
 
-    if(rbBrasil.checked) {
-        clube = 'Brasil';
-    } else if(rbPelotas.checked) {
-        clube = 'Pelotas';
-    } else if(rbFarroupilha.checked) {
-        clube = 'Farroupilha';
-    } else {
-        clube = 'Nenhum';
+    for(var i = 0; i<clubes.length; i++) {
+        if(inputsRadio[i].checked) {
+            var selecao = i;
+            break;
+        }
     }
 
-    divTitulo.className = 'row cores'+clube;
+    if(selecao<=2) {
+        divTitulo.className = 'row cores'+clubes[selecao];
 
-    imgClube.src = 'img/'+clube.toLocaleLowerCase()+'.png';
-
-    if(clube!='Nenhum') {
+        imgClube.src = 'img/'+clubes[selecao].toLocaleLowerCase()+'.png';
         imgClube.className = 'exibe';
-        imgClube.alt = 'Símbolo do '+clube;
+        imgClube.alt = 'Símbolo do '+clubes[selecao];
+        localStorage.setItem('clube', clubes[selecao]);
     } else {
+        divTitulo.className = 'row';
         imgClube.className = 'oculta';
+        imgClube.alt = '';
+        localStorage.removeItem('clube');
     }
-
-    localStorage.setItem('clube', clube);
 }
-var rbBrasil = document.getElementById('rbBrasil');
-var rbPelotas = document.getElementById('rbPelotas');
-var rbFarroupilha = document.getElementById('rbFarroupilha');
-var rbNenhum = document.getElementById('rbNenhum');
-
-rbBrasil.addEventListener('change', trocarClube);
-rbPelotas.addEventListener('change', trocarClube);
-rbFarroupilha.addEventListener('change', trocarClube);
-rbNenhum.addEventListener('change', trocarClube);
+var inputsRadio = document.getElementsByTagName('input');
+for(var i = 0; i<inputsRadio.length; i++) {
+    inputsRadio[i].addEventListener('change', trocarClube);
+}
 
 
 function verificarClube() {
     if(localStorage.getItem('clube')) {
         var clube = localStorage.getItem('clube');
-    }
 
-    if(clube=='Brasil') {
-        rbBrasil.checked = true;
-    } else if(clube=='Pelotas') {
-        rbPelotas.checked = true;
-    } else if(clube=='Farroupilha') {
-        rbFarroupilha.checked = true;
-    } else {
-        rbNenhum.checked = true;
+        if(clube=='Brasil') {
+            inputsRadio[0].checked = true;
+        } else if(clube=='Pelotas') {
+            inputsRadio[1].checked = true;
+        } else {
+            inputsRadio[2].checked = true;
+        } 
     }
 
     trocarClube();
