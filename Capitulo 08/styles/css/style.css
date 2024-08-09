@@ -12,3 +12,7 @@ pre { font-size: 1.2em; }
 .coresBrasil { color: black; background-color: red; }
 .coresPelotas { color: blue; background-color: yellow; }
 .coresFarroupilha { color: green; background-color: white; }
+
+#outBoasVindas {
+    text-align: center;
+}
