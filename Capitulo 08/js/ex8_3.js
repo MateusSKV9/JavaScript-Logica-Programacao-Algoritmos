@@ -98,11 +98,11 @@ function verificarVencedor() {
     for(var i = 0; i<nomes.length; i++) {
         difVencedor = Math.abs(vencedorPeso-pesoCorreto);
         difAposta = Math.abs(Number(pesos[i])-pesoCorreto);
-    }
 
-    if(difAposta<difVencedor) {
-        vencedorNome = nomes[i];
-        vencedorPeso = Number(pesos[i]);
+        if(difAposta<difVencedor) {
+            vencedorNome = nomes[i];
+            vencedorPeso = Number(pesos[i]);
+        }
     }
 
     var mensagem = 'Resultado - Peso correto: '+pesoCorreto+'g';
