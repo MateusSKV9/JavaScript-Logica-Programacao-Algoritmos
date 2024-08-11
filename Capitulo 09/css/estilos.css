@@ -37,3 +37,9 @@ img.moeda0_10 {
 input {
     margin-top: 5px !important;
 }
+
+.direita {
+  width: 100%;
+  text-align: right;
+  font-style: italic;
+}
