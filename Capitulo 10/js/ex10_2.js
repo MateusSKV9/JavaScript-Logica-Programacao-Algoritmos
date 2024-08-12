@@ -2,11 +2,12 @@ const POLTRONAS = 240;
 
 var reservadas = [];
 
+// MONTAR PALCO
 function montarPalco() {
     var ocupadas = [];
 
     if(localStorage.getItem('teatroOcupadas')) {
-        ocupadas = localStorage.getItem('teatro').split(';');
+        ocupadas = localStorage.getItem('teatroOcupadas').split(';');
     }
 
     var divPalco = document.getElementById('divPalco');
@@ -16,7 +17,7 @@ function montarPalco() {
         var imgStatus = document.createElement('img');
 
         if(ocupadas.indexOf(i.toString()) >= 0) {
-            imgStatus.src = 'img/ocupadas.jpg';
+            imgStatus.src = 'img/ocupada.jpg';
         } else {
             imgStatus.src = 'img/disponivel.jpg';
         }
@@ -55,7 +56,7 @@ montarPalco();
 function reservarPoltrona() {
     var poltrona = Number(inPoltrona.value)
 
-    if(poltrona<=0 || isNaN(poltrona)) {
+    if(poltrona<=0 || isNaN(poltrona) || poltrona>POLTRONAS) {
         alert('Informe um número de poltrona válido');
         inPoltrona.focus();
         return;
@@ -87,9 +88,39 @@ function reservarPoltrona() {
 var btReservar = document.getElementById('btReservar');
 btReservar.addEventListener('click', reservarPoltrona);
 
+// ACIONAR TECLA
 var inPoltrona = document.getElementById('inPoltrona');
 inPoltrona.addEventListener('keypress', function(tecla) {
     if(tecla.keyCode == 13) {
         reservarPoltrona();
     }
 });
+
+// CONFIRMAR RESERVA
+function confirmarReserva() {
+    if(reservadas.length == 0){
+        alert('Não há poltronas reservadas');
+        inPoltrona.focus();
+        return;
+    }
+
+    var divPalco = document.getElementById('divPalco');
+    var ocupadas = '';
+
+    if(localStorage.getItem('teatroOcupadas')) {
+        ocupadas = localStorage.getItem('teatroOcupadas')+';';
+    }
+
+    for(var i = 0; i<reservadas.length; i++) {
+        ocupadas += reservadas[i]+';';
+
+        var imgPoltrona = divPalco.getElementsByTagName('img')[reservadas[i] - 1];
+        imgPoltrona.src = 'img/ocupada.jpg';
+
+        
+    }
+    reservadas = [];
+    localStorage.setItem('teatroOcupadas', ocupadas.substr(0, ocupadas.length - 1));
+}
+var btConfirmar = document.getElementById('btConfirmar');
+btConfirmar.addEventListener('click', confirmarReserva);
