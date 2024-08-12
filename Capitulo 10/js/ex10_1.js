@@ -21,13 +21,12 @@ function adicionarAposta() {
 
     for(var i = 0; i<apostas.length; i++) {
         lista += 'Nº '+apostas[i].cavalo + ' '+obterCavalo(apostas[i].cavalo);
-        lista += '- R$: '+apostas[i].value.toFixed(2)+'\n';
+        lista += '- R$: '+apostas[i].valor.toFixed(2)+'\n';
     }
     outApostas.textContent = lista;
 }
-var btnApostar = document.getElementById('btApostar');
-btnApostar.addEventListener('click', adicionarAposta);
-
+var btApostar = document.getElementById('btApostar');
+btApostar.addEventListener('click', adicionarAposta);
 
 // VALIDAR CAVALO
 function validarCavalo(num) {
@@ -39,7 +38,6 @@ function validarCavalo(num) {
         return false;
     }
 }
-
 
 // MOSTRAR CAVALO
 function mostrarCavalo() {
@@ -67,13 +65,11 @@ function mostrarCavalo() {
 var inCavalo = document.getElementById('inCavalo');
 inCavalo.addEventListener('blur', mostrarCavalo);
 
-
 // OBTER CAVALO
 function obterCavalo(num) {
     var posicao = num - 1;
     return CAVALOS[posicao];
 }
-
 
 // CONTAR APOSTAS
 function contarApostas(numCavalo) {
@@ -87,7 +83,6 @@ function contarApostas(numCavalo) {
     return contador;
 }
 
-
 // TOTALIZAR APOSTAS
 function totalizarApostas(numCavalo) {
     var total = 0;
@@ -100,9 +95,53 @@ function totalizarApostas(numCavalo) {
     return total;
 }
 
-
 // LIMPAR CONTEÚDO
 inCavalo.addEventListener('focus', function() {
     inCavalo.value = '';
     document.getElementById('outCavalo').textContent = '';
+})
+
+//  MOSTRAR GANHADOR
+function ganhadorPareo() {
+    var ganhador = Number(prompt('Nº Cavalo ganhador: '));
+
+    if(isNaN(ganhador) || !validarCavalo(ganhador)) {
+        alert('Cavalo inválido');
+        return;
+    }
+
+    var outApostas = document.getElementById('outApostas');
+    var resumo = 'Resultado final do páreo\n';
+    resumo += '-------------------------------------\n';
+    resumo += 'Nº total de apostas: '+apostas.length+'\n';
+    resumo += 'Total geral R$: '+totalizarGeral().toFixed(2)+'\n\n';
+    resumo += 'Ganhador Nº '+ganhador+' - '+obterCavalo(ganhador)+'\n';
+    resumo += '-------------------------------------\n';
+    resumo += 'Nº de apostas: '+contarApostas(ganhador)+'\n';
+    resumo += 'Total apostado R$: '+totalizarApostas(ganhador).toFixed(2);
+
+    outApostas.textContent = resumo;
+
+    btApostar.disabled = true;
+    btGanhador.disabled = true;
+    btNovo.focus();
+}
+var btGanhador = document.getElementById('btGanhador');
+btGanhador.addEventListener('click', ganhadorPareo);
+
+// TOTALIZAR GERAL
+function totalizarGeral() {
+    var total = 0;
+
+    for(var i = 0; i<apostas.length; i++) {
+        total += apostas[i].valor;
+    }
+
+    return total;
+}
+
+// GERAR NOVO PAREO
+var btNovo = document.getElementById('btNovo');
+btNovo.addEventListener('click', function() {
+    location.reload();
 })
