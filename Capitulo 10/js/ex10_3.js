@@ -1,3 +1,4 @@
+// CADASTRAR PALAVRA
 function cadastrarPalavra() {
     var inPalavra = document.getElementById('inPalavra');
     var inDica = document.getElementById('inDica');

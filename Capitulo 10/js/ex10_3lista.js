@@ -1,3 +1,4 @@
+// MONTAR TABELA
 function montarTabela() {
     if(localStorage.getItem('jogoPalavra')) {
         var palavras = localStorage.getItem('jogoPalavra').split(';');
@@ -20,6 +21,7 @@ function montarTabela() {
     }
 }
 
+// MOSTRAR PALAVRAS
 var ckMostrar = document.getElementById('ckMostrar');
 ckMostrar.addEventListener('change', function() {
     if(ckMostrar.checked) {
@@ -30,6 +32,7 @@ ckMostrar.addEventListener('change', function() {
     }
 })
 
+// MARCAR PALAVRAS
 var ckTodos = document.getElementById('ckTodos');
 ckTodos.addEventListener('change', function() {
     var tbPalavras = document.getElementById('tbPalavras');
@@ -42,6 +45,7 @@ ckTodos.addEventListener('change', function() {
     }
 });
 
+// REMOVER PALAVRAS
 function removerPalavras() {
     var tbPalavras = document.getElementById('tbPalavras');
     var ckExcluir = tbPalavras.getElementsByTagName('input');

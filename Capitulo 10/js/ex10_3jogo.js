@@ -5,6 +5,7 @@ var inLetra = document.getElementById('inLetra');
 var btJogar = document.getElementById('btJogar');
 var btVerDica = document.getElementById('btVerDica');
 
+// MONTAR JOGO
 function montarJogo() {
     var outPalavra = document.getElementById('outPalavra');
 
@@ -36,6 +37,7 @@ if(localStorage.getItem('jogoPalavra')) {
     btVerDica.disabled = true;
 }
 
+// MOSTRAR DICA
 function mostrarDica() {
     var outErros = document.getElementById('outErros');
     var outDica = document.getElementById('outDica');
@@ -59,6 +61,7 @@ function mostrarDica() {
 }
 btVerDica.addEventListener('click', mostrarDica);
 
+// TROCAR IMAGEM
 function trocarStatus(num) {
     if(num>0) {
         var imgStatus = document.getElementById("imgStatus");
@@ -66,6 +69,7 @@ function trocarStatus(num) {
     }
 }
 
+// JOGAR LETRA
 function jogarLetra() {
     var outPalavra = document.getElementById('outPalavra');
     var outErros = document.getElementById('outErros');
@@ -118,6 +122,7 @@ inLetra.addEventListener('keypress', function(tecla) {
     }
 });
 
+// VERIFICAR FIM
 function verificarFim() {
     var outChances = document.getElementById('outChances');
     var outMensagemFinal = document.getElementById('outMensagemFinal');
@@ -134,6 +139,7 @@ function verificarFim() {
     }
 }
 
+// CONCLUIR JOGO
 function concluirJogo() {
     var outDica = document.getElementById('outDica');
     outDica.textContent = '* Clique no botão "iniciar jogo" para jogar novamente';
