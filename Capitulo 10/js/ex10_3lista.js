@@ -68,8 +68,8 @@ function removerPalavras() {
 
         for(i = 1; i<ckExcluir.length; i++) {
             if(!ckExcluir[i].checked) {
-                palavras += tbPalavras.rows[i].cell[0].textContent+';';
-                dicas += tbPalavras.rows[i].cell[1].textContent+';';
+                palavras += tbPalavras.rows[i].cells[0].textContent+';';
+                dicas += tbPalavras.rows[i].cells[1].textContent+';';
             }
         }
         if(palavras!='') {
