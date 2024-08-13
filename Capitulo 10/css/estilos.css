@@ -16,3 +16,7 @@ img.poltrona { width: 24; height: 16px; }
 .margemDica { padding: 12px; }
 .fonteAzul { color: blue; }
 .fonteVermelho { color: red; }
+
+#game {
+    margin-top: 10px;
+}
